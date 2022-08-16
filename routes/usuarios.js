@@ -27,10 +27,8 @@ router.get('/',auth,
 router.patch('/:id',auth,
 [
     check('nombre', 'El nombre es obligatorio ').not().isEmpty(),
-    check('movil','Agrega un movil válido').isEmail(),
-    check('password', 'El password mínimo es de 6 caracteres').isLength({min:6})
-
-],
+    check('movil',' un movil válido').not().isEmpty(),
+], 
     usuarioController.modificarUsuario
     );
 

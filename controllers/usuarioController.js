@@ -77,8 +77,8 @@ exports.modificarUsuario=async(req,res)=>{
             return res.status(404).json({msg:'No existe el usuario a modificar'});
         }
 
-         //actualizar trabajo
-         await Trabajo.updateOne({_id:req.params.id},{$set: req.body})
+         //actualizar usuario
+         await Usuario.updateOne({_id:req.params.id},{$set: req.body})
          res.status(200).json({msg:'Modificado correctamente'});
 
      } catch (error) {
