@@ -1,2 +1,2 @@
-# apiTituloQR
-el backen de TituloQR una app para verificar la validezde los títulos otorgados por la Univ de Artemisa
+# apiDetodo
+el backen de Detodo un ecomerce enfocado a ventas por whatsapp
