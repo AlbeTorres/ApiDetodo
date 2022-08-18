@@ -16,7 +16,6 @@ exports.crearProducto= async(req, res)=>{
         //crear un nuevo producto
 
         const producto= new Producto(req.body);
-        producto.creador = req.usuario.id;
         await producto.save();
         res.status(200).json(producto);
         
