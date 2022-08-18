@@ -32,9 +32,9 @@ exports.crearProducto= async(req, res)=>{
 exports.obtenerProductos= async(req, res)=>{
 
     try {
-        const productos = await Productos.find({});
+        const productos = await Producto.find({});
 
-        res.status(200).json({productos});
+        res.status(200).json(productos);
         
     } catch (error) {
         console.log(error)
