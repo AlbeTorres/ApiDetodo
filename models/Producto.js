@@ -16,6 +16,10 @@ const ProductoSchema = mongoose.Schema({
         type: String,
         required:true,
     },
+    cloud_id:{
+        type: String,
+        required:true,
+    },
     provincia:{
         type: String,
         required:true,

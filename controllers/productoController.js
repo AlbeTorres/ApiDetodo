@@ -1,5 +1,6 @@
 const Producto = require('../models/Producto');
 const { validationResult} = require('express-validator');
+const cloudinary = require('cloudinary').v2
 
 
 
@@ -72,17 +73,33 @@ exports.modificarProducto= async(req, res)=>{
 
 //eliminar un participante
 exports.eliminarProducto= async(req,res)=>{
+    cloudinary.config({
+        cloud_name: process.env.CLOUD_NAME,
+        api_key: process.env.APIKEY,
+        api_secret: process.env.APISECRET
+      });
+
+      console.log ({
+        cloud_name: process.env.CLOUD_NAME,
+        api_key: process.env.APIKEY,
+        api_secret: process.env.APISECRET
+      })
 
     try {
 
         //comprobar que existe el producto
         let productoFind = await Producto.findById(req.params.id);
+        console.log(productoFind)
 
         if(!productoFind){
             return res.status(404).json({msg:'Producto no encontrado'});
         }
 
         //eliminar
+
+        cloudinary.uploader.destroy(productoFind.cloud_id, function(error,result) {
+            console.log(result, error) });
+
         await Producto.findOneAndRemove({_id:req.params.id});
 
         res.status(200).json({msg:'Producto eliminado correctamente'});
