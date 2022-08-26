@@ -19,7 +19,7 @@ router.post('/',auth,
 );
 
 //obtener todos los participantes
-router.get('/',auth,
+router.get('/',
     productoController.obtenerProductos
     );
 
