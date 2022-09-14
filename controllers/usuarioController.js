@@ -100,7 +100,7 @@ exports.obtenerUsuarios=async(req,res)=>{
     try {
 
          //verificar que el usuario existe
-        const usuarios = Usuario.find();
+        const usuarios = await Usuario.find({});
 
           //retornar usuario
         res.status(200).json({usuarios});
