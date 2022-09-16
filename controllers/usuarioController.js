@@ -78,8 +78,9 @@ exports.modificarUsuario=async(req,res)=>{
         }
 
          //actualizar usuario
-         await Usuario.updateOne({_id:req.params.id},{$set: req.body})
-         res.status(200).json({msg:'Modificado correctamente'});
+        await Usuario.updateOne({_id:req.params.id},{$set: req.body})
+        const usuario = await Usuario.findById(req.params.id);
+        res.status(200).json({usuario});
 
      } catch (error) {
          console.log(error)
