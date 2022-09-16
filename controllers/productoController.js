@@ -60,8 +60,9 @@ exports.modificarProducto= async(req, res)=>{
 
         //actualizar producto
         await Producto.updateOne({_id:req.params.id},{$set:req.body});
+        const producto = await Producto.findById(req.params.id)
 
-        res.status(200).json({msg:'Modificado correctamente'});
+        res.status(200).json({producto});
         
     } catch (error) {
         console.log(error)

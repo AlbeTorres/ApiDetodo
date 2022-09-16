@@ -30,6 +30,9 @@ const ProductoSchema = mongoose.Schema({
         required:true,
         trim: true
     },
+    promodate:{
+        type: String,
+    },
     precio:{
         type: Number,
     },
